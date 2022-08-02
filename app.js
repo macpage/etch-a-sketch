@@ -1,6 +1,12 @@
+
+const block = document.querySelector(".block")
+document.body.appendChild(block);
 const container = document.createElement("div");
 container.classList.add("container");
-document.body.appendChild(container);
+block.appendChild(container);
+
+const underBlock = document.querySelector(".under-block");
+document.body.appendChild(underBlock);
 let isDown;
 
 
@@ -15,23 +21,31 @@ const grid = document.createElement("div");
 
 }  
  
- 
-
-
-
    let content = container.querySelectorAll("div");
    
-  
+
 
     container.addEventListener("mousedown", () =>  {
         isDown = true;
          console.log(isDown);
     })
 
+
+
     container.addEventListener("mouseup", () => {
         isDown = false;
         console.log(isDown);
     })
+
+
+
+    content.forEach(e => e.addEventListener("click", () => {
+        console.log("hey");
+        
+       
+          e.style.backgroundColor = "black";  
+ 
+    }));
 
 
 
