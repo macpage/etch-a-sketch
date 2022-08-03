@@ -7,12 +7,19 @@ block.appendChild(container);
 
 const underBlock = document.querySelector(".under-block");
 document.body.appendChild(underBlock);
+const side = document.querySelector(".side");
+block.appendChild(side);
 let isDown;
 
 
+let eraserOn;
+ const eraser = document.querySelector(".eraser");
 
- 
+ eraser.addEventListener("click", () => eraserOn = true);
 
+ const pick = document.querySelector("#colorpicker");
+
+ pick.addEventListener("click", () => eraserOn = false);
 
     for(let i = 0; i<256;i++){
 const grid = document.createElement("div");
@@ -41,9 +48,16 @@ const grid = document.createElement("div");
 
     content.forEach(e => e.addEventListener("click", () => {
         console.log("hey");
+        const color = document.querySelector("#colorpicker").value;
+console.log(color);
+
+        if(!eraserOn){
+            e.style.backgroundColor = color;  
+        } else{
+            e.style.backgroundColor = "#ffffff";
+        }
         
-       
-          e.style.backgroundColor = "black";  
+          
  
     }));
 
@@ -51,11 +65,75 @@ const grid = document.createElement("div");
 
       content.forEach(e => e.addEventListener("mouseover", () => {
         console.log("hey");
-        
+        const color = document.querySelector("#colorpicker").value;
+console.log(color);
         if(isDown){
-          e.style.backgroundColor = "black";  
+            if(!eraserOn){
+                e.style.backgroundColor = color;  
+            } else{
+                e.style.backgroundColor = "#ffffff";
+            }
+            
         }
        
         
     }));
-  
+
+
+
+    let isLiked;
+    const liking = document.querySelector(".pic1");
+    
+    document.querySelector(".pic1").addEventListener("click", function () {
+        this.style.transform = "scale(1.3)";
+        setTimeout(()=>{
+           this.style.transform = "scale(1)";
+        },200)
+      });
+
+            liking.addEventListener("click", () => {      
+                if(!isLiked){
+        document.querySelector(".pic1").src = "pics-and-icons/liked.png";  
+    isLiked = true;
+    console.log("liked!")
+                } else {
+                    document.querySelector(".pic1").src = "pics-and-icons/like.png"; 
+                    isLiked = false;
+                    console.log("not liked!")
+                }
+
+})
+
+
+let isOpen;
+
+document.querySelector(".pic2").addEventListener("click", function () {
+    this.style.transform = "scale(1.3)";
+    setTimeout(()=>{
+       this.style.transform = "scale(1)";
+    },200)
+  });
+
+const comment = document.querySelector(".pic2");
+
+
+
+
+    
+
+comment.addEventListener("click", () => {      
+    if(!isOpen){
+document.querySelector(".box").style.display = "block";
+document.querySelector(".box").classList.remove("close");
+isOpen = true;
+console.log("open!")
+    } else {
+        document.querySelector(".box").classList.add("close");
+        isOpen = false;
+        console.log("not open!")
+    }
+
+})
+
+
+
