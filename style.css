@@ -1,7 +1,7 @@
 *{
     padding: 0;
     margin: 0;
-    background-color: gray;
+    background-color: rgb(254, 146, 74);
     font-family:  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
@@ -36,34 +36,81 @@ html,body{
  width: 50px;
  height: 50px;
  margin: 10px;
+ 
+ padding: 2px;
  background-color: #323232;
+ border-radius: 100%;
 }
 
 
 .user-background {
     display: grid;
-    grid-template-columns: 100px 300px 100px;
+    grid-template-columns: 90px 300px 100px;
    
     background-color: white;
     width: 480px;
     height: 70px;
     align-items: center;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .user-background p {
     background-color: white;
     text-align: center;
     
+    width: fit-content;
 }
 
 .block{
-display: flex;
+display: grid;
+grid-template-columns: 480px 20px;
 justify-content: center;
 margin-top: 0px;
 
+
+}
+
+.side{
+margin-left: 40px;
+
+display: grid;
+grid-template-columns: 100px 100px;
+grid-template-rows: 100px 100px 100px;
+align-items: center;
+
+}
+#colorpicker{
+    width: 50px;
+    height: 50px;
+    -webkit-appearance: none;
+  
+    border: none;
+
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border-radius: 100%;
+    border: 3px solid white;
+}
+.side p{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.eraser{
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    
 }
 
 .container{
+    margin-left: 10px;
     display: grid;
     
     grid-template-columns:repeat(16, 30px);
@@ -83,30 +130,107 @@ margin-top: 0px;
 .under-block{
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
     grid-template-rows: 100px;
     
     margin: 0 auto 0 auto;
     max-width: 480px;
     height: 300px;
     background-color: white;
+    align-items: center;
 }
 
 
 
 .under-block img {
-    width: 50px;
-    height: 50px;
-    background-color: black;
+
+    background-color: white;
+
+    
+}
+
+.pic1,.pic2,.pic3 {
+    margin:  20px;
+}
+
+.pic1{
+    transition: transform .2s;
+    width: 40px;
+    height: 40px;
+    
+}
+
+.pic1:hover {
+    
+}
+
+.animate {
+    transform: scale(1.2);
+}
+
+.pic2{
+    width: 40px;
+    height: 40px;
+    transition: transform .1s;
+}
+
+
+
+.pic3 {
+    width: 35px;
+    height: 35px;
+}
+
+.box{
+    
+    display: none;
+    border: 3px solid black;
+    height: 200px;
+    align-items: center;
+    animation: 0.5s slide-up;
+    background-color: white;
+    margin-top: -20px;
+}
+
+.close {
+    animation: hideAnimation 0.2s ease-in 0.2s;
+    animation-fill-mode: forwards;
 }
 
 .comment {
-    width: 200px;
+    
+    width: auto;
+    
     background-color: white;
-    grid-column: 1/2;
+    grid-column: 1/7;
     grid-row: 2/3;
+   padding: 3px;
 }
 
-.comment p{
-    background-color: white;
+.box textarea{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: 26px;
+  resize: none;
+  padding: 10px;
 }
+
+
+@keyframes slide-up {
+    from {
+      margin-top: 150px;
+      height: 0px;
+    }
+}
+
+@keyframes hideAnimation {
+    to {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+  }
