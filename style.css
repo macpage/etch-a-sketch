@@ -16,7 +16,7 @@ html,body{
 .headline {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+   
 
 }
 
@@ -48,7 +48,7 @@ html,body{
     grid-template-columns: 90px 300px 100px;
    
     background-color: white;
-    width: 480px;
+    width: 512px;
     height: 70px;
     align-items: center;
     font-weight: bold;
@@ -64,7 +64,7 @@ html,body{
 
 .block{
 display: grid;
-grid-template-columns: 480px 20px;
+grid-template-columns: 512px 20px;
 justify-content: center;
 margin-top: 0px;
 
@@ -113,8 +113,7 @@ input[type="color"]::-webkit-color-swatch {
     margin-left: 10px;
     display: grid;
     
-    grid-template-columns:repeat(16, 30px);
-    grid-template-rows: repeat(16,30px);
+   
     background-color: gray;
     width: fit-content;
     height: fit-content;
@@ -134,7 +133,7 @@ input[type="color"]::-webkit-color-swatch {
     grid-template-rows: 100px;
     
     margin: 0 auto 0 auto;
-    max-width: 480px;
+    max-width: 512px;
     height: 300px;
     background-color: white;
     align-items: center;
@@ -233,4 +232,16 @@ input[type="color"]::-webkit-color-swatch {
       width: 0;
       height: 0;
     }
+  }
+
+  .slidecontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+    
+  }
+
+  .slider {
+    width: 200px;
   }
