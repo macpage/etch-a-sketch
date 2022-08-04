@@ -8,28 +8,32 @@
 html,body{
     height: 100%;
     
-  
+  overflow: hidden;
 }
 
+body{
+    animation: 0.5s slide-up;
+}
 
 
 .headline {
     display: flex;
     justify-content: center;
    
-
+    
 }
 
 .headline h1{
     background-color: white;
     border: 5px solid black;
-    
+    margin-top: 20px;
 }
 
 .user-block {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 20px;
+    
 }
 
 .user-background img {
@@ -55,11 +59,15 @@ html,body{
     font-size: 20px;
 }
 
-.user-background p {
+.user-background .username {
     background-color: white;
-    text-align: center;
-    
-    width: fit-content;
+    font-size: 25px;
+    height: 30px;
+    width: 320px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-weight: bold;
 }
 
 .block{
@@ -112,8 +120,9 @@ input[type="color"]::-webkit-color-swatch {
 .container{
     margin-left: 10px;
     display: grid;
+
     
-   
+    
     background-color: gray;
     width: fit-content;
     height: fit-content;
@@ -137,6 +146,7 @@ input[type="color"]::-webkit-color-swatch {
     height: 300px;
     background-color: white;
     align-items: center;
+    
 }
 
 
@@ -201,7 +211,7 @@ input[type="color"]::-webkit-color-swatch {
     width: auto;
     
     background-color: white;
-    grid-column: 1/7;
+    grid-column: 1/8;
     grid-row: 2/3;
    padding: 3px;
 }
@@ -244,4 +254,15 @@ input[type="color"]::-webkit-color-swatch {
 
   .slider {
     width: 200px;
+  }
+
+  .posted-text {
+  
+    display: none;
+   text-align: center;
+   background-color: white;
+   word-wrap: break-word;
+   font-size: 40px;
+   margin-top: -80px;
+
   }
