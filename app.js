@@ -21,12 +21,112 @@ let eraserOn;
 
  pick.addEventListener("click", () => eraserOn = false);
 
-    for(let i = 0; i<256;i++){
-const grid = document.createElement("div");
-    grid.classList.add("pixel");
-    container.appendChild(grid);
 
-}  
+
+ let slider = document.querySelector(".slider").value;
+
+
+
+ let pixelSize = 128 / slider;
+
+let gridSize = 4 * slider;
+
+ container.style.setProperty('grid-template-columns', 'repeat(' + gridSize + ', '+pixelSize+'px)');
+container.style.setProperty('grid-template-rows', 'repeat(' + gridSize + ', '+pixelSize+'px)');
+
+for(let i = 0; i<(gridSize*gridSize);i++){
+    const grid = document.createElement("div");
+        grid.classList.add("pixel");
+        container.appendChild(grid);
+    
+    }  
+
+ 
+ document.querySelector(".slider").oninput = function() { 
+
+
+    slider = this.value 
+pixelSize = 64 / slider;
+
+gridSize = 8 * slider;
+
+container.style.setProperty('grid-template-columns', 'repeat(' + gridSize + ', '+pixelSize+'px)');
+container.style.setProperty('grid-template-rows', 'repeat(' + gridSize + ', '+pixelSize+'px)');
+
+document.querySelector(".slider-text").textContent = gridSize+"x"+gridSize;
+
+
+
+for(let i = 0; i<(gridSize*gridSize);i++){
+    const grid = document.createElement("div");
+        grid.classList.add("pixel");
+        container.appendChild(grid);
+    
+    }  
+
+
+
+    let content = container.querySelectorAll("div");
+   
+    content.forEach(e => e.style.backgroundColor = "#ffffff");
+
+
+    container.addEventListener("mousedown", () =>  {
+        isDown = true;
+         console.log(isDown);
+    })
+
+
+
+    container.addEventListener("mouseup", () => {
+        isDown = false;
+        console.log(isDown);
+    })
+
+
+
+    content.forEach(e => e.addEventListener("click", () => {
+        console.log("hey");
+        const color = document.querySelector("#colorpicker").value;
+console.log(color);
+
+        if(!eraserOn){
+            e.style.backgroundColor = color;  
+        } else{
+            e.style.backgroundColor = "#ffffff";
+        }
+        
+          
+ 
+    }));
+
+
+
+      content.forEach(e => e.addEventListener("mouseover", () => {
+        console.log("hey");
+        const color = document.querySelector("#colorpicker").value;
+console.log(color);
+        if(isDown){
+            if(!eraserOn){
+                e.style.backgroundColor = color;  
+            } else{
+                e.style.backgroundColor = "#ffffff";
+            }
+            
+        }
+       
+        
+    }));
+
+
+    
+};
+
+
+ 
+
+
+
  
    let content = container.querySelectorAll("div");
    
