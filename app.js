@@ -21,15 +21,15 @@ let eraserOn;
 
  pick.addEventListener("click", () => eraserOn = false);
 
-
+ let postedText = document.querySelector(".posted-text");
 
  let slider = document.querySelector(".slider").value;
 
 
 
- let pixelSize = 128 / slider;
+ let pixelSize = 64 / slider;
 
-let gridSize = 4 * slider;
+let gridSize = 8 * slider;
 
  container.style.setProperty('grid-template-columns', 'repeat(' + gridSize + ', '+pixelSize+'px)');
 container.style.setProperty('grid-template-rows', 'repeat(' + gridSize + ', '+pixelSize+'px)');
@@ -225,15 +225,21 @@ comment.addEventListener("click", () => {
     if(!isOpen){
 document.querySelector(".box").style.display = "block";
 document.querySelector(".box").classList.remove("close");
+postedText.style.display = "none";
 isOpen = true;
 console.log("open!")
     } else {
         document.querySelector(".box").classList.add("close");
+
+postedText.textContent = document.querySelector(".text-content").value;
+setTimeout(()=>{
+    postedText.style.display = "block";
+ },500)
+
         isOpen = false;
         console.log("not open!")
     }
 
 })
-
 
 
